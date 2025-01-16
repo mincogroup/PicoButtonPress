@@ -1,3 +1,11 @@
+import board
+import digitalio
 import storage
 
-storage.remount("/", False)
+button_pin = board.GP8
+
+button = digitalio.DigitalInOut(button_pin)
+button.direction = digitalio.Direction.INPUT
+button.pull = digitalio.Pull.DOWN
+
+storage.remount("/", button.value)
