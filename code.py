@@ -23,10 +23,14 @@ try:
     
     while True:
         if button.value:
-            keyboard.send(Keycode.F13)
-            led.value = True
-            time.sleep(1)
-            led.value = False
+            time.sleep(0.1)
+            if button.value:
+                time.sleep(1)
+                if not button.value:
+                    keyboard.send(Keycode.F13)
+                    led.value = True
+                    time.sleep(1)
+                    led.value = False
     
 except Exception as e:
     if os.stat("/exception.txt")[6] > 262144:
