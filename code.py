@@ -25,7 +25,7 @@ try:
         if button.value:
             time.sleep(0.1)
             if button.value:
-                time.sleep(1)
+                time.sleep(0.25)
                 if not button.value:
                     keyboard.send(Keycode.F13)
                     led.value = True
